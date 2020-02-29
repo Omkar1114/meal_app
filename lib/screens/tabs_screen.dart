@@ -70,6 +70,8 @@ class _TabsScreenState extends State<TabsScreen> {
         color: Theme.of(context).primaryColor,
         backgroundColor: Colors.white,
         height: 60,
+        animationDuration: Duration(milliseconds: 300),
+        animationCurve: Curves.easeIn,
         items: <Widget>[
           Icon(
             Icons.category,
@@ -80,7 +82,7 @@ class _TabsScreenState extends State<TabsScreen> {
             size: 30,
           ),
         ],
-        onTap: (index) => {},
+        onTap: (index) => _selectedPage(index),
       ),
     );
   }

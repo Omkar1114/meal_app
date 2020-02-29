@@ -89,13 +89,15 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
       ),
+      debugShowCheckedModeBanner: false,
       // home: CategoryScreen(),
       initialRoute: '/',
       routes: {
         '/': (ctx) => TabsScreen(_favoriteMeals),
         CategoryMealsScreen.routeName: (ctx) =>
             CategoryMealsScreen(_availableMeals),
-        MealDetailScreen.routeName: (ctx) => MealDetailScreen(_toggleFavorites,_isFavoriteMeal),
+        MealDetailScreen.routeName: (ctx) =>
+            MealDetailScreen(_toggleFavorites, _isFavoriteMeal),
         FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
       },
       onUnknownRoute: (settings) {
