@@ -68,7 +68,7 @@ class _TabsScreenState extends State<TabsScreen> {
       // ),
       bottomNavigationBar: CurvedNavigationBar(
         color: Theme.of(context).primaryColor,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).canvasColor,
         height: 60,
         animationDuration: Duration(milliseconds: 300),
         animationCurve: Curves.easeIn,
