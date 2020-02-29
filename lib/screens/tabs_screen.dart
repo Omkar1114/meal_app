@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
@@ -6,7 +7,6 @@ import './category_screen.dart';
 import './favorite_screen.dart';
 
 class TabsScreen extends StatefulWidget {
-
   final List<Meal> favoriteMeals;
   TabsScreen(this.favoriteMeals);
 
@@ -27,15 +27,15 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   void initState() {
     _pages = [
-    {
-      'page': CategoryScreen(),
-      'title': 'Categories',
-    },
-    {
-      'page': FavoriteScreen(widget.favoriteMeals),
-      'title': 'Your Favorite',
-    },
-  ];
+      {
+        'page': CategoryScreen(),
+        'title': 'Categories',
+      },
+      {
+        'page': FavoriteScreen(widget.favoriteMeals),
+        'title': 'Your Favorite',
+      },
+    ];
     super.initState();
   }
 
@@ -47,24 +47,40 @@ class _TabsScreenState extends State<TabsScreen> {
       ),
       drawer: MainDrawer(),
       body: _pages[_selectedPageIndex]['page'],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        selectedItemColor: Theme.of(context).accentColor,
-        unselectedItemColor: Colors.white,
-        currentIndex: _selectedPageIndex,
-        onTap: _selectedPage,
-        items: [
-          BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.category),
-            title: Text('Category'),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   backgroundColor: Theme.of(context).primaryColor,
+      //   selectedItemColor: Theme.of(context).accentColor,
+      //   unselectedItemColor: Colors.white,
+      //   currentIndex: _selectedPageIndex,
+      //   onTap: _selectedPage,
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       backgroundColor: Theme.of(context).primaryColor,
+      //       icon: Icon(Icons.category),
+      //       title: Text('Category'),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       backgroundColor: Theme.of(context).primaryColor,
+      //       icon: Icon(Icons.star),
+      //       title: Text('Favorite'),
+      //     ),
+      //   ],
+      // ),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: Theme.of(context).primaryColor,
+        backgroundColor: Colors.white,
+        height: 60,
+        items: <Widget>[
+          Icon(
+            Icons.category,
+            size: 30,
           ),
-          BottomNavigationBarItem(
-            backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.star),
-            title: Text('Favorite'),
+          Icon(
+            Icons.star,
+            size: 30,
           ),
         ],
+        onTap: (index) => {},
       ),
     );
   }
